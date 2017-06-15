@@ -1,3 +1,8 @@
+<?php
+require_once("clases/canchas.php");
+$u=new Canchas();
+$datos=$u->getDatos();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,8 +75,41 @@
 					</p>
 					</br>
 					<h2>Sistema de Arriendo de Canchas </h2>
-					<p>Presiona el botón de abajo para arrendar la piscina.</p>
-					<a href="phelps1.php" class="btn btn-primary">Piscina #1</a>
+					              <div class="panel-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>id_cancha</th>
+                            <th>id_gym</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+							<th>Horarios</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+						
+                        foreach($datos as $dato){
+                            ?>
+                            <tr>
+
+                                <td><?php echo $dato->id_cancha?> </td>
+                                <td><?php echo $dato->id_gym?> </td>
+                                <td><?php echo $dato->Nombre?> </td>
+                                <td><?php echo $dato->Precio?> </td>
+								<td><FORM>
+									<input name="button2" type="button" value="Ver Disponibilidad" />
+									</FORM>
+								</td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+                
+              </div>
 					</br>
 					</br>
 			</article>
